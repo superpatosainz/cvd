@@ -5,12 +5,14 @@ use Modern::Perl '2015'; # strict, warnings, autodie, etc.
 use HTML::TableExtract;
 use File::Slurp;
 use String::Util 'trim';
+use Mojo::JSON;
 
 ##########################################
 use Data::Dumper; # Am I debugging?
 ##########################################
 
 unless (defined($ARGV[0])) { die "FATAL: File target must be set as argument"; }
+my %notas;
 my $raw = read_file("$ARGV[0]");
 
 my $TableExtract =  new HTML::TableExtract( headers => ["TRIM", "ASIGNATURA", "Nota1", "Nota2", "Nota3", 
@@ -35,6 +37,7 @@ foreach my $TableSearch ( $TableExtract->tables ) {
 
 # Sacamos la asignatura y las notas del primer semestre
 		if ($rows->[0] eq '1') {
+
 			print "$rows->[1]: ".
 			"$rows->[2] $rows->[3] $rows->[4] $rows->[5] $rows->[6] ".
 			"$rows->[7] $rows->[8] $rows->[9] $rows->[10] $rows->[11] $rows->[12] ".
