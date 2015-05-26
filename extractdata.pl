@@ -50,6 +50,7 @@ foreach my $TableSearch ( $TableExtract->tables ) {
 
 			my @notasprimer;
 
+			#removemos las notas "vacías" ( - )
 			for (my $i=2; $i <= 16; $i++) {
 				if ($rows->[$i] ne '-') { push(@notasprimer, $rows->[$i]); }
 			}
@@ -66,7 +67,8 @@ foreach my $TableSearch ( $TableExtract->tables ) {
 		if ($rows->[0] eq '2') {
 
 			my @notassegundo;
-			
+
+			#removemos las notas "vacías" ( - )
 			for (my $i=2; $i <= 16; $i++) {
 				if ($rows->[$i] ne '-') { push(@notassegundo, $rows->[$i]); }
 			}
