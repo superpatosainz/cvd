@@ -35,7 +35,7 @@ foreach my $TableSearch ( $TableExtract->tables ) {
 		our $currentasig;
 
 
-		$rows->[12] =~ s/\s+//g; # Normalizar este campo; Trim no funciona con el cagazo de HTML de esa columna
+		$rows->[12] =~ s/\s+//g; # Normalizar este campo; Trim no funciona con el HTML corrupto de esa columna
 
 		foreach (@$rows) { $_ = trim($_); } # Normalizar los campos de texto
 
