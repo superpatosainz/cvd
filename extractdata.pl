@@ -49,21 +49,10 @@ foreach my $TableSearch ( $TableExtract->tables ) {
 			$currentasig = $rows->[1];
 
 			my @notasprimer;
-			if ($rows->[2] ne '-') { push(@notasprimer, $rows->[2]); }
-			if ($rows->[3] ne '-') { push(@notasprimer, $rows->[3]); }
-			if ($rows->[4] ne '-') { push(@notasprimer, $rows->[4]); }
-			if ($rows->[5] ne '-') { push(@notasprimer, $rows->[5]); }
-			if ($rows->[6] ne '-') { push(@notasprimer, $rows->[6]); }
-			if ($rows->[7] ne '-') { push(@notasprimer, $rows->[7]); }
-			if ($rows->[8] ne '-') { push(@notasprimer, $rows->[8]); }
-			if ($rows->[9] ne '-') { push(@notasprimer, $rows->[9]); }
-			if ($rows->[10] ne '-') { push(@notasprimer, $rows->[10]); }
-			if ($rows->[11] ne '-') { push(@notasprimer, $rows->[11]); }
-			if ($rows->[12] ne '-') { push(@notasprimer, $rows->[12]); }
-			if ($rows->[13] ne '-') { push(@notasprimer, $rows->[13]); }
-			if ($rows->[14] ne '-') { push(@notasprimer, $rows->[14]); }
-			if ($rows->[15] ne '-') { push(@notasprimer, $rows->[15]); }
-			if ($rows->[16] ne '-') { push(@notasprimer, $rows->[16]); }
+
+			for (my $i=2; $i <= 16; $i++) {
+				if ($rows->[$i] ne '-') { push(@notasprimer, $rows->[$i]); }
+			}
 
 
 			$notas{$currentasig}{'primersemestre'}{'notas'} = [@notasprimer];
@@ -77,21 +66,10 @@ foreach my $TableSearch ( $TableExtract->tables ) {
 		if ($rows->[0] eq '2') {
 
 			my @notassegundo;
-			if ($rows->[2] ne '-') { push(@notassegundo, $rows->[2]); }
-			if ($rows->[3] ne '-') { push(@notassegundo, $rows->[3]); }
-			if ($rows->[4] ne '-') { push(@notassegundo, $rows->[4]); }
-			if ($rows->[5] ne '-') { push(@notassegundo, $rows->[5]); }
-			if ($rows->[6] ne '-') { push(@notassegundo, $rows->[6]); }
-			if ($rows->[7] ne '-') { push(@notassegundo, $rows->[7]); }
-			if ($rows->[8] ne '-') { push(@notassegundo, $rows->[8]); }
-			if ($rows->[9] ne '-') { push(@notassegundo, $rows->[9]); }
-			if ($rows->[10] ne '-') { push(@notassegundo, $rows->[10]); }
-			if ($rows->[11] ne '-') { push(@notassegundo, $rows->[11]); }
-			if ($rows->[12] ne '-') { push(@notassegundo, $rows->[12]); }
-			if ($rows->[13] ne '-') { push(@notassegundo, $rows->[13]); }
-			if ($rows->[14] ne '-') { push(@notassegundo, $rows->[14]); }
-			if ($rows->[15] ne '-') { push(@notassegundo, $rows->[15]); }
-			if ($rows->[16] ne '-') { push(@notassegundo, $rows->[16]); }
+			
+			for (my $i=2; $i <= 16; $i++) {
+				if ($rows->[$i] ne '-') { push(@notassegundo, $rows->[$i]); }
+			}
 
 
 			$notas{$currentasig}{'segundosemestre'}{'notas'} = [@notassegundo];
